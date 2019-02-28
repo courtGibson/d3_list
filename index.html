@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="d3.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+          var dataset = ["pig", "cat", "moose", "monkey", "fish", "chinchilla", "zebra"];
 
+          d3.select("body")
+            .append("h1")
+            .text("List of Animal Names");
+
+          d3.select("body")
+            .append("h3")
+            .text("The length of an animal's name corresponds to a color.");
+
+          d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .text(function(d) {return d})
+            .style("color", function(d)
+            {
+                if (d.length== 3)
+                {
+                    return "red";
+                }
+                if (d.length== 4)
+                {
+                    return "black";
+                }
+                if (d.length == 5)
+                {
+                  return "green";
+                }
+                if (d.length ==6)
+                {
+                  return "orange";
+                }
+                else
+                {
+                  return "blue";
+                }
+            });
+
+
+        </script>
+    </body>
+</html>
